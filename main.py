@@ -7,7 +7,7 @@ from objects import *
 from GameManager import *
 from discord.ext import commands
 
-KEY = os.environ.get('KEY')
+KEY = os.environ.get('')
 
 #INTENTS
 intents = discord.Intents.default()
@@ -23,11 +23,11 @@ def get_prefix(client, message):
         prefix = c.fetchone()
 
         if prefix is None:
-            return 'am.'
+            return '*'
         else:
             return prefix[1]
     except:
-        return 'am.'
+        return '*'
 
 client = commands.AutoShardedBot(command_prefix = get_prefix, intents=intents, chunk_guilds_at_startup=False)
 client.remove_command('help')
