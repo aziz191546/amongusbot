@@ -23,11 +23,11 @@ def get_prefix(client, message):
         prefix = c.fetchone()
 
         if prefix is None:
-            return '*'
+            return 'am.'
         else:
             return prefix[1]
     except:
-        return '*'
+        return 'am.'
 
 client = commands.AutoShardedBot(command_prefix = get_prefix, intents=intents, chunk_guilds_at_startup=False)
 client.remove_command('help')
